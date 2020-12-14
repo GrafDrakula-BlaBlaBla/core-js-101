@@ -36,8 +36,9 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(len) {
-  return [Array.from(len + 1).keys()].map((x) => x + 1);
+function generateOdds(/* len */) {
+  throw new Error('Not implemented');
+  // return [Array.from(len + 1).keys()].map((x) => x + 1);
 }
 
 /**
@@ -317,7 +318,9 @@ function getPositivesCount(arr) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {}
+function sortDigitNamesByNumericOrder(/* arr */) {
+  throw new Error('Not implemented');
+}
 
 /**
  * Returns the sum of all items in the specified array of numbers
@@ -412,6 +415,7 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(/* arr */) {
+  throw new Error('Not implemented');
   // return arr.sort((a, b) => a.country - b.country && a.city - b.ciry);
 }
 
@@ -434,6 +438,7 @@ function sortCitiesArray(/* arr */) {
  *           [0,0,0,0,1]]
  */
 function getIdentityMatrix(/* n */) {
+  throw new Error('Not implemented');
   // Array(rows).fill(Array(columns).fill(0));
   // const arr = Array(n).fill(Array(n).fill(0));
   // return arr.map((el, i) => {
@@ -509,6 +514,7 @@ function distinct(arr) {
  *   }
  */
 function group(/* array, keySelector, valueSelector */) {
+  throw new Error('Not implemented');
   // return new Map(array.map((el) => {}));
 }
 
