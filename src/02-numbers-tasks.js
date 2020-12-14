@@ -7,7 +7,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Returns an area of a rectangle given by width and heigth.
  *
@@ -22,7 +21,6 @@
 function getRectangleArea(width, height) {
   return width * height;
 }
-
 
 /**
  * Returns a circumference of circle given by radius.
@@ -92,16 +90,17 @@ function getLinearEquationRoot(a, b) {
   let res = 0;
   if (a !== 0 && a > 0) {
     if (Math.sign(b)) {
-      b = -b;
-      res = b / a;
+      let n = b;
+      n = -b;
+      res = n / a;
     } else {
-      b = -b;
-      res = b / a;
+      let n = b;
+      n = -b;
+      res = n / a;
     }
   }
   return res;
 }
-
 
 /**
  * Returns an angle (in radians) between two vectors given by xi and yi,
@@ -142,7 +141,6 @@ function getLastDigit(value) {
   const str = value.toString();
   return parseInt(str[str.length - 1], 10);
 }
-
 
 /**
  * Returns a number by given string representation.
@@ -194,8 +192,9 @@ function getParallelipidedDiagonal(a, b, c) {
  *   1678, 3  => 2000
  */
 function roundToPowerOfTen(num, pow) {
-  if (!pow) pow = 0;
-  var pre = Math.pow(10, pow);
+  let p = pow;
+  if (!pow) p = 0;
+  const pre = 10 ** p;
   return Math.round(num * pre) / pre;
 }
 
@@ -217,7 +216,7 @@ function roundToPowerOfTen(num, pow) {
  *   17 => true
  */
 function isPrime(n) {
-  for (let i = 2, s = Math.sqrt(n); i <= s; i++) if (n % i === 0) return false;
+  for (let i = 2, s = Math.sqrt(n); i <= s; i + 1) if (n % i === 0) return false;
   return n > 1;
 }
 
@@ -241,10 +240,9 @@ function toNumber(value, def) {
 
   const num = Number(value);
   if (num) {
-    return parseInt(value);
-  } else {
-    return def;
+    return parseInt(value, 10);
   }
+  return def;
 }
 
 module.exports = {

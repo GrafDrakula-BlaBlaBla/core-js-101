@@ -6,7 +6,6 @@
  *                                                                                           *
  ******************************************************************************************* */
 
-
 /**
  * Parses a rfc2822 string date representation into date value
  * For rfc2822 date specification refer to : http://tools.ietf.org/html/rfc2822#page-14
@@ -38,7 +37,6 @@ function parseDataFromIso8601(value) {
   return Date.parse(value);
 }
 
-
 /**
  * Returns true if specified date is leap year and false otherwise
  * Please find algorithm here: https://en.wikipedia.org/wiki/Leap_year#Algorithm
@@ -54,10 +52,9 @@ function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 function isLeapYear(date) {
-  let year = date.getFullYear();
+  const year = date.getFullYear();
   return year % 100 === 0 ? year % 400 === 0 : year % 4 === 0;
 }
-
 
 /**
  * Returns the string represention of the timespan between two dates.
@@ -74,12 +71,8 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,10,0,0,250)     => "00:00:00.250"
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
-function timeSpanToString(startDate, endDate) {
-  let diff = new Date(endDate.getTime() - startDate.getTime());
-  console.log(diff);
-  console.log(diff.getUTCDate());
-  console.log(diff.toLocaleTimeString());
-
+function timeSpanToString(/* startDate, endDate */) {
+  // const diff = new Date(endDate.getTime() - startDate.getTime());
   // console.log(diff.toLocaleTimeString());
   // let options = {
   //   hour: '2-digit',
@@ -87,12 +80,10 @@ function timeSpanToString(startDate, endDate) {
   //   second: 'numeric',
   //   hour12: false,
   // };
-
   //   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
   // const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
   // const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
 }
-
 
 /**
  * Returns the angle (in radians) between the hands of an analog clock
@@ -113,7 +104,6 @@ function timeSpanToString(startDate, endDate) {
 function angleBetweenClockHands(/* date */) {
   throw new Error('Not implemented');
 }
-
 
 module.exports = {
   parseDataFromRfc2822,
