@@ -8,11 +8,17 @@ describe('02-numbers-tasks', () => {
     assert.equal(tasks.getRectangleArea(5, 5), 25);
   });
 
-  it.optional('getCicleCircumference should return a circumference of cicle', () => {
-    assert.equal(tasks.getCicleCircumference(5), 31.41592653589793);
-    assert.equal(tasks.getCicleCircumference(3.14), 19.729201864543903);
-    assert.equal(tasks.getCicleCircumference(0), 0);
-  });
+  it.optional(
+    
+    'getCicleCircumference should return a circumference of cicle',
+
+       () => {
+        assert.equal(tasks.getCicleCircumference(5), 31.41592653589793);
+        assert.equal(tasks.getCicleCircumference(3.14), 19.729201864543903);
+        assert.equal(tasks.getCicleCircumference(0), 0);
+      }
+  
+  );
 
   it.optional('getAverage should return an average of two numbers', () => {
     assert.equal(tasks.getAverage(5, 5), 5);
@@ -28,24 +34,48 @@ describe('02-numbers-tasks', () => {
     );
   });
 
-  it.optional('getDistanceBetweenPoints should return a distance between points', () => {
-    assert.equal(tasks.getDistanceBetweenPoints(0, 0, 0, 1), 1);
-    assert.equal(tasks.getDistanceBetweenPoints(0, 0, 1, 0), 1);
-    assert.equal(tasks.getDistanceBetweenPoints(-5, 0, 10, -10), 18.027756377319946);
-  });
+  it.optional(
+    
+    'getDistanceBetweenPoints should return a distance between points',
 
-  it.optional('getLinearEquationRoot should return a root of linear equation', () => {
-    assert.equal(tasks.getLinearEquationRoot(5, -10), 2);
-    assert.equal(tasks.getLinearEquationRoot(1, 8), -8);
-    assert.equal(tasks.getLinearEquationRoot(5, 0), 0);
-  });
+       () => {
+        assert.equal(tasks.getDistanceBetweenPoints(0, 0, 0, 1), 1);
+        assert.equal(tasks.getDistanceBetweenPoints(0, 0, 1, 0), 1);
+        assert.equal(
+        
+        tasks.getDistanceBetweenPoints(-5, 0, 10, -10),
 
-  it.optional('getAngleBetweenVectors should return a angle (in radians) between two linear vectors', () => {
-    assert.equal(tasks.getAngleBetweenVectors(1, 0, 0, 1), Math.PI / 2);
-    assert.equal(tasks.getAngleBetweenVectors(0, 1, 0, -1), Math.PI);
-    assert.equal(tasks.getAngleBetweenVectors(0, -1, 1, 0), Math.PI / 2);
-    assert.equal(tasks.getAngleBetweenVectors(0, 1, 0, 1), 0);
-  });
+               18.027756377319946
+      
+      );
+      }
+  
+  );
+
+  it.optional(
+    
+    'getLinearEquationRoot should return a root of linear equation',
+
+       () => {
+        assert.equal(tasks.getLinearEquationRoot(5, -10), 2);
+        assert.equal(tasks.getLinearEquationRoot(1, 8), -8);
+        assert.equal(tasks.getLinearEquationRoot(5, 0), 0);
+      }
+  
+  );
+
+  it.optional(
+    
+    'getAngleBetweenVectors should return a angle (in radians) between two linear vectors',
+   
+    () => {
+        assert.equal(tasks.getAngleBetweenVectors(1, 0, 0, 1), Math.PI / 2);
+        assert.equal(tasks.getAngleBetweenVectors(0, 1, 0, -1), Math.PI);
+        assert.equal(tasks.getAngleBetweenVectors(0, -1, 1, 0), Math.PI / 2);
+        assert.equal(tasks.getAngleBetweenVectors(0, 1, 0, 1), 0);
+      }
+  
+  );
 
   it.optional('getLastDigit should return a last digit of the number', () => {
     assert.equal(tasks.getLastDigit(100), 0);
@@ -54,17 +84,29 @@ describe('02-numbers-tasks', () => {
     assert.equal(tasks.getLastDigit(0), 0);
   });
 
-  it.optional('parseNumberFromString should return a number from the given string representation', () => {
-    assert.equal(tasks.parseNumberFromString('100'), 100);
-    assert.equal(tasks.parseNumberFromString('37'), 37);
-    assert.equal(tasks.parseNumberFromString('-525.5'), -525.5);
-  });
+  it.optional(
+    
+    'parseNumberFromString should return a number from the given string representation',
+   
+    () => {
+        assert.equal(tasks.parseNumberFromString('100'), 100);
+        assert.equal(tasks.parseNumberFromString('37'), 37);
+        assert.equal(tasks.parseNumberFromString('-525.5'), -525.5);
+      }
+  
+  );
 
-  it.optional('getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped', () => {
-    assert.equal(tasks.getParallelipidedDiagonal(1, 1, 1), Math.sqrt(3));
-    assert.equal(tasks.getParallelipidedDiagonal(3, 3, 3), Math.sqrt(27));
-    assert.equal(tasks.getParallelipidedDiagonal(1, 2, 3), Math.sqrt(14));
-  });
+  it.optional(
+    
+    'getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped',
+   
+    () => {
+        assert.equal(tasks.getParallelipidedDiagonal(1, 1, 1), Math.sqrt(3));
+        assert.equal(tasks.getParallelipidedDiagonal(3, 3, 3), Math.sqrt(27));
+        assert.equal(tasks.getParallelipidedDiagonal(1, 2, 3), Math.sqrt(14));
+      }
+  
+  );
 
   it.optional('roundToPowerOfTen should return an number rounded to specified power of 10', () => {
     assert.equal(tasks.roundToPowerOfTen(1234, 0), 1234);
@@ -95,13 +137,19 @@ describe('02-numbers-tasks', () => {
     assert.equal(tasks.isPrime(119), false, '119');
   });
 
-  it.optional('toNumber should convert any value to number or return the default', () => {
-    assert.equal(tasks.toNumber(null, 0), 0);
-    assert.equal(tasks.toNumber('test', 0), 0);
-    assert.equal(tasks.toNumber('1', 0), 1);
-    assert.equal(tasks.toNumber(42, 0), 42);
-    // eslint-disable-next-line no-new-wrappers
-    assert.equal(tasks.toNumber(new Number(42), 0), 42);
-    assert.equal(tasks.toNumber(undefined, -1), -1);
-  });
+  it.optional(
+    
+    'toNumber should convert any value to number or return the default',
+   
+    () => {
+        assert.equal(tasks.toNumber(null, 0), 0);
+        assert.equal(tasks.toNumber('test', 0), 0);
+        assert.equal(tasks.toNumber('1', 0), 1);
+        assert.equal(tasks.toNumber(42, 0), 42);
+        // eslint-disable-next-line no-new-wrappers
+        assert.equal(tasks.toNumber(new Number(42), 0), 42);
+        assert.equal(tasks.toNumber(undefined, -1), -1);
+      }
+  
+  );
 });
