@@ -9,11 +9,13 @@ describe('03-arrays-tasks', () => {
         arr: ['Ace', 10, true],
         value: 10,
         expected: 1,
-      }, {
+      },
+      {
         arr: ['Array', 'Number', 'string'],
         value: 'Date',
         expected: -1,
-      }, {
+      },
+      {
         arr: [0, 1, 2, 3, 4, 5],
         value: 5,
         expected: 5,
@@ -23,7 +25,7 @@ describe('03-arrays-tasks', () => {
       assert.equal(
         data.expected,
         actual,
-        `Index of '${data.value}' inside of [${data.arr}] = ${data.expected}, but actually ${actual}`,
+        `Index of '${data.value}' inside of [${data.arr}] = ${data.expected}, but actually ${actual}`
       );
     });
   });
