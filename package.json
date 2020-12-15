@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "Core JS 101",
   "scripts": {
-    "str" : "mocha test/01-strings-tests.js",
     "num" : "mocha test/02-numbers-tests.js",
-    "arr" : "mocha test/03-arrays-tests.js",
-    "dat" : "mocha test/04-date-tests",
+    "date": "mocha test/04-date-tests.js",
+    "obj": "mocha test/06-objects-tests.js",
+    "pr": "mocha test/07-promises-tests.js",
+    "loop": "mocha test/08-conditions-n-loops-tests.js",
     "test": "npm run lint && mocha",
     "lint": "node node_modules/eslint/bin/eslint.js ./src"
   },

@@ -3,56 +3,129 @@ const tasks = require('../src/08-conditions-n-loops-tasks');
 it.optional = require('../extensions/it-optional');
 
 describe('08-conditions-n-loops-tasks', () => {
-  it.optional('getFizzBuzz should return the output value according specification', () => {
-    [
-      1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34,
-      37, 38, 41, 43, 44, 47, 49, 52, 53, 56, 58, 59, 61, 62, 64, 67, 68, 71,
-      73, 74, 76, 77, 79, 82, 83, 86, 88, 89, 91, 92, 94, 97, 98,
-    ].forEach((num) => {
-      const actual = tasks.getFizzBuzz(num);
-      assert.equal(
-        actual,
-        num,
-        `getFizzBuzz shoud return ${num} for ${num}, but actually ${actual}`,
-      );
-    });
+  it.optional(
+    'getFizzBuzz should return the output value according specification',
+    () => {
+      [
+        1,
+        2,
+        4,
+        7,
+        8,
+        11,
+        13,
+        14,
+        16,
+        17,
+        19,
+        22,
+        23,
+        26,
+        28,
+        29,
+        31,
+        32,
+        34,
+        37,
+        38,
+        41,
+        43,
+        44,
+        47,
+        49,
+        52,
+        53,
+        56,
+        58,
+        59,
+        61,
+        62,
+        64,
+        67,
+        68,
+        71,
+        73,
+        74,
+        76,
+        77,
+        79,
+        82,
+        83,
+        86,
+        88,
+        89,
+        91,
+        92,
+        94,
+        97,
+        98,
+      ].forEach((num) => {
+        const actual = tasks.getFizzBuzz(num);
+        assert.equal(
+          actual,
+          num,
+          `getFizzBuzz shoud return ${num} for ${num}, but actually ${actual}`
+        );
+      });
 
-    [
-      3, 6, 9, 12, 18, 21, 24, 27,
-      33, 36, 39, 42, 48, 51, 54, 57,
-      63, 66, 69, 72, 78, 81, 84, 87,
-      93, 96, 99,
-    ].forEach((num) => {
-      const actual = tasks.getFizzBuzz(num);
-      assert.equal(
-        actual,
-        'Fizz',
-        `getFizzBuzz shoud return 'Fizz' for ${num}, but actually ${actual}`,
-      );
-    });
+      [
+        3,
+        6,
+        9,
+        12,
+        18,
+        21,
+        24,
+        27,
+        33,
+        36,
+        39,
+        42,
+        48,
+        51,
+        54,
+        57,
+        63,
+        66,
+        69,
+        72,
+        78,
+        81,
+        84,
+        87,
+        93,
+        96,
+        99,
+      ].forEach((num) => {
+        const actual = tasks.getFizzBuzz(num);
+        assert.equal(
+          actual,
+          'Fizz',
+          `getFizzBuzz shoud return 'Fizz' for ${num}, but actually ${actual}`
+        );
+      });
 
-    [
-      5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85, 95, 100,
-    ].forEach((num) => {
-      const actual = tasks.getFizzBuzz(num);
-      assert.equal(
-        actual,
-        'Buzz',
-        `getFizzBuzz shoud return 'Buzz' for ${num}, but actually ${actual}`,
+      [5, 10, 20, 25, 35, 40, 50, 55, 65, 70, 80, 85, 95, 100].forEach(
+        (num) => {
+          const actual = tasks.getFizzBuzz(num);
+          assert.equal(
+            actual,
+            'Buzz',
+            `getFizzBuzz shoud return 'Buzz' for ${num}, but actually ${actual}`
+          );
+        }
       );
-    });
 
-    [
-      15, 30, 45, 60, 75, 90,
-    ].forEach((num) => {
-      const actual = tasks.getFizzBuzz(num);
-      assert.equal(
-        actual,
-        'FizzBuzz',
-        `getFizzBuzz shoud return 'FizzBuzz' for ${num}, but actually ${actual}`,
-      );
-    });
-  });
+      [15, 30, 45, 60, 75, 90].forEach((num) => {
+        const actual = tasks.getFizzBuzz(num);
+        assert.equal(
+          actual,
+          'FizzBuzz',
+          `getFizzBuzz shoud return 'FizzBuzz' for ${num}, but actually ${actual}`
+        );
+      });
+    }
+  );
 
 
   it.optional('getFactorial should return the functorial of given number', () => {
@@ -65,7 +138,7 @@ describe('08-conditions-n-loops-tasks', () => {
       assert.equal(
         actual,
         data.expected,
-        `${data.n}! = ${data.expected}, but actual ${actual}`,
+        `${data.n}! = ${data.expected}, but actual ${actual}`
       );
     });
   });
@@ -81,7 +154,7 @@ describe('08-conditions-n-loops-tasks', () => {
       assert.equal(
         actual,
         data.expected,
-        `Sum of [${data.n1},${data.n2}] = ${data.expected}, but actual ${actual}`,
+        `Sum of [${data.n1},${data.n2}] = ${data.expected}, but actual ${actual}`
       );
     });
   });
@@ -94,16 +167,25 @@ describe('08-conditions-n-loops-tasks', () => {
       { sides: [10, 1, 1], expected: false },
       { sides: [10, 10, 10], expected: true },
     ].forEach((data) => {
-      [[0, 1, 2], [0, 2, 1], [1, 2, 0], [1, 0, 2], [2, 0, 1], [2, 1, 0]].forEach((idx) => {
+      [
+        [0, 1, 2],
+        [0, 2, 1],
+        [1, 2, 0],
+        [1, 0, 2],
+        [2, 0, 1],
+        [2, 1, 0],
+      ].forEach((idx) => {
         const actual = tasks.isTriangle(
           data.sides[idx[0]],
           data.sides[idx[1]],
-          data.sides[idx[2]],
+          data.sides[idx[2]]
         );
         assert.equal(
           actual,
           data.expected,
-          `Triangle from [${data.sides.toString()}]: expected ${data.expected} but actual ${actual}`,
+          `Triangle from [${data.sides.toString()}]: expected ${
+            data.expected
+          } but actual ${actual}`
         );
       });
     });
@@ -114,58 +196,106 @@ describe('08-conditions-n-loops-tasks', () => {
     [
       {
         rect1: {
-          top: 0, left: 0, width: 10, height: 10,
+          top: 0,
+          left: 0,
+          width: 10,
+          height: 10,
         },
         rect2: {
-          top: 5, left: 5, width: 10, height: 10,
+          top: 5,
+          left: 5,
+          width: 10,
+          height: 10,
         },
         expected: true,
-      }, {
+      },
+      {
         rect1: {
-          top: 10, left: 10, width: 10, height: 10,
+          top: 10,
+          left: 10,
+          width: 10,
+          height: 10,
         },
         rect2: {
-          top: 5, left: 5, width: 15, height: 15,
+          top: 5,
+          left: 5,
+          width: 15,
+          height: 15,
         },
         expected: true,
-      }, {
+      },
+      {
         rect1: {
-          top: 10, left: 10, width: 50, height: 5,
+          top: 10,
+          left: 10,
+          width: 50,
+          height: 5,
         },
         rect2: {
-          top: 5, left: 5, width: 10, height: 50,
+          top: 5,
+          left: 5,
+          width: 10,
+          height: 50,
         },
         expected: true,
-      }, {
+      },
+      {
         rect1: {
-          top: 0, left: 0, width: 90, height: 90,
+          top: 0,
+          left: 0,
+          width: 90,
+          height: 90,
         },
         rect2: {
-          top: 25, left: 25, width: 10, height: 10,
+          top: 25,
+          left: 25,
+          width: 10,
+          height: 10,
         },
         expected: true,
-      }, {
+      },
+      {
         rect1: {
-          top: 5, left: 5, width: 20, height: 20,
+          top: 5,
+          left: 5,
+          width: 20,
+          height: 20,
         },
         rect2: {
-          top: 5, left: 5, width: 40, height: 10,
+          top: 5,
+          left: 5,
+          width: 40,
+          height: 10,
         },
         expected: true,
-      }, {
+      },
+      {
         rect1: {
-          top: 5, left: 5, width: 20, height: 20,
+          top: 5,
+          left: 5,
+          width: 20,
+          height: 20,
         },
         rect2: {
-          top: 30, left: 5, width: 40, height: 10,
+          top: 30,
+          left: 5,
+          width: 40,
+          height: 10,
         },
         expected: false,
-      }, {
+      },
+      {
         rect1: {
-          top: 0, left: 0, width: 90, height: 90,
+          top: 0,
+          left: 0,
+          width: 90,
+          height: 90,
         },
         rect2: {
-          top: 25, left: 100, width: 10, height: 10,
+          top: 25,
+          left: 100,
+          width: 10,
+          height: 10,
         },
         expected: false,
       },
@@ -173,7 +303,9 @@ describe('08-conditions-n-loops-tasks', () => {
       assert.equal(
         tasks.doRectanglesOverlap(data.rect1, data.rect2),
         data.expected,
-        `doRectanglesOverlap(\n   ${JSON.stringify(data.rect1)},\n   ${JSON.stringify(data.rect2)}\n): expected ${data.expected}`,
+        `doRectanglesOverlap(\n   ${JSON.stringify(
+          data.rect1
+        )},\n   ${JSON.stringify(data.rect2)}\n): expected ${data.expected}`
       );
     });
   });
@@ -185,27 +317,33 @@ describe('08-conditions-n-loops-tasks', () => {
         circle: { center: { x: 0, y: 0 }, radius: 10 },
         point: { x: 0, y: 0 },
         expected: true,
-      }, {
+      },
+      {
         circle: { center: { x: 5, y: 5 }, radius: 6 },
         point: { x: 5, y: 10.99 },
         expected: true,
-      }, {
+      },
+      {
         circle: { center: { x: 0, y: 0 }, radius: 10 },
         point: { x: 0, y: 10 },
         expected: false,
-      }, {
+      },
+      {
         circle: { center: { x: 5, y: 5 }, radius: 6 },
         point: { x: 0, y: 0 },
         expected: false,
-      }, {
+      },
+      {
         circle: { center: { x: 2, y: 2 }, radius: 1 },
         point: { x: 2.8, y: 2.8 },
         expected: false,
-      }, {
+      },
+      {
         circle: { center: { x: 2, y: 2 }, radius: 4 },
         point: { x: -1, y: -1 },
         expected: false,
-      }, {
+      },
+      {
         circle: { center: { x: 2, y: 2 }, radius: 4 },
         point: { x: 2, y: 6.1 },
         expected: false,
@@ -214,7 +352,9 @@ describe('08-conditions-n-loops-tasks', () => {
       assert.equal(
         tasks.isInsideCircle(data.circle, data.point),
         data.expected,
-        `isInsideCircle(\n   ${JSON.stringify(data.circle)},\n   ${JSON.stringify(data.point)}\n): expected ${data.expected}`,
+        `isInsideCircle(\n   ${JSON.stringify(
+          data.circle
+        )},\n   ${JSON.stringify(data.point)}\n): expected ${data.expected}`
       );
     });
   });

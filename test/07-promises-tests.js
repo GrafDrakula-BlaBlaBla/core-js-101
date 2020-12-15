@@ -3,79 +3,93 @@ const tasks = require('../src/07-promises-tasks');
 it.optional = require('../extensions/it-optional');
 
 describe('07-promises-tasks', () => {
-  it.optional('function willYouMarryMe should return correct Promise object', (done) => {
-    const answer1 = tasks.willYouMarryMe(true);
-    const answer2 = tasks.willYouMarryMe(false);
-    const answers = [
-      tasks.willYouMarryMe(),
-      tasks.willYouMarryMe(null),
-      tasks.willYouMarryMe(NaN),
-      tasks.willYouMarryMe(''),
-      tasks.willYouMarryMe(1),
-      tasks.willYouMarryMe('Yes'),
-      tasks.willYouMarryMe({}),
-    ];
+  it.optional(
+    'function willYouMarryMe should return correct Promise object',
+    (done) => {
+      const answer1 = tasks.willYouMarryMe(true);
+      const answer2 = tasks.willYouMarryMe(false);
+      const answers = [
+        tasks.willYouMarryMe(),
+        tasks.willYouMarryMe(null),
+        tasks.willYouMarryMe(NaN),
+        tasks.willYouMarryMe(''),
+        tasks.willYouMarryMe(1),
+        tasks.willYouMarryMe('Yes'),
+        tasks.willYouMarryMe({}),
+      ];
 
-    const messages = [];
-    const defaultRejectionMessage = new Error('Promise should be rejected with an Error!');
-
-    assert(
-      answer1 instanceof Promise && answer2 instanceof Promise,
-      'willYouMarryMe should return Promise!',
-    );
-
-    // answer 1
-    answer1.then((value) => {
-      assert.equal(
-        value,
-        'Hooray!!! She said "Yes"!',
-        'if parameter is "true" Promise should be resolved with value === \'Hooray!!! She said "Yes"!\'',
+      const messages = [];
+      const defaultRejectionMessage = new Error(
+        'Promise should be rejected with an Error!'
       );
-    }).catch((error) => {
-      const errorMessage = error instanceof Error ? error : defaultRejectionMessage;
-      messages.push(errorMessage.message);
 
-      // answer 2
-    }).then(() => answer2).then((value) => {
-      assert.equal(
-        value,
-        'Oh no, she said "No".',
-        'if parameter is "false" Promise should be resolved with value === \'Oh no, she said "No".\'',
+      assert(
+        answer1 instanceof Promise && answer2 instanceof Promise,
+        'willYouMarryMe should return Promise!'
       );
-    })
-      .catch((error) => {
-        const errorMessage = error instanceof Error ? error : defaultRejectionMessage;
-        messages.push(errorMessage.message);
-      })
-      // answers
-      .then(() => Promise.all(answers))
-      .then(() => {
-        assert(
-          false,
-          'if parameter is not boolean Promise should be rejected with Error(\'Wrong parameter is passed! Ask her again.\')',
-        );
-      })
-      .catch((error) => {
-        const errorMessage = error instanceof Error ? error : defaultRejectionMessage;
 
-        assert.equal(
-          errorMessage.message,
-          'Wrong parameter is passed! Ask her again.',
-          'if parameter is not boolean Promise should be rejected with Error(\'Wrong parameter is passed! Ask her again.\')',
-        );
-      })
-      .catch((error) => {
-        const errorMessage = error instanceof Error ? error : defaultRejectionMessage;
-        messages.push(errorMessage.message);
-      })
-      .finally(() => {
-        if (messages.length > 0) {
-          done(Error(`\t${messages.join(';\n\t\t')}`));
-        } else {
-          done();
-        }
-      });
-  }, true);
+      // answer 1
+      answer1
+        .then((value) => {
+          assert.equal(
+            value,
+            'Hooray!!! She said "Yes"!',
+            'if parameter is "true" Promise should be resolved with value === \'Hooray!!! She said "Yes"!\''
+          );
+        })
+        .catch((error) => {
+          const errorMessage =
+            error instanceof Error ? error : defaultRejectionMessage;
+          messages.push(errorMessage.message);
+
+          // answer 2
+        })
+        .then(() => answer2)
+        .then((value) => {
+          assert.equal(
+            value,
+            'Oh no, she said "No".',
+            'if parameter is "false" Promise should be resolved with value === \'Oh no, she said "No".\''
+          );
+        })
+        .catch((error) => {
+          const errorMessage =
+            error instanceof Error ? error : defaultRejectionMessage;
+          messages.push(errorMessage.message);
+        })
+        // answers
+        .then(() => Promise.all(answers))
+        .then(() => {
+          assert(
+            false,
+            "if parameter is not boolean Promise should be rejected with Error('Wrong parameter is passed! Ask her again.')"
+          );
+        })
+        .catch((error) => {
+          const errorMessage =
+            error instanceof Error ? error : defaultRejectionMessage;
+
+          assert.equal(
+            errorMessage.message,
+            'Wrong parameter is passed! Ask her again.',
+            "if parameter is not boolean Promise should be rejected with Error('Wrong parameter is passed! Ask her again.')"
+          );
+        })
+        .catch((error) => {
+          const errorMessage =
+            error instanceof Error ? error : defaultRejectionMessage;
+          messages.push(errorMessage.message);
+        })
+        .finally(() => {
+          if (messages.length > 0) {
+            done(Error(`\t${messages.join(';\n\t\t')}`));
+          } else {
+            done();
+          }
+        });
+    },
+    true
+  );
 
   it.optional('function processAllPromises should return correct Promise that will be resolved with array of values', (done) => {
     const arrayForPromise = new Array(1000).fill(0).map((_, idx) => idx);

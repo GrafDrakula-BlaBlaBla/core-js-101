@@ -83,6 +83,11 @@ describe('06-objects-tasks', () => {
 
     [
       {
+        proto: MockType.prototype,
+        json: '{ "a":10, "b":20, "c":30 }',
+        expected: new MockType(10, 20, 30),
+      },
+      {
         proto: Circle.prototype,
         json: '{ "radius":10 }',
         expected: new Circle(10),
@@ -97,14 +102,14 @@ describe('06-objects-tasks', () => {
       assert.deepEqual(
         actual,
         data.expected,
-        'fromJson method shoud restore all properties from json',
+        'fromJson method shoud restore all properties from json'
       );
       assert.equal(
         // eslint-disable-next-line no-proto
         actual.__proto__,
         // eslint-disable-next-line no-proto
         data.expected.__proto__,
-        'fromJson method shoud restore type from prototype argument',
+        'fromJson method shoud restore type from prototype argument'
       );
     });
   });

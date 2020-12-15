@@ -72,17 +72,18 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(/* startDate, endDate */) {
-  // const diff = new Date(endDate.getTime() - startDate.getTime());
-  // console.log(diff.toLocaleTimeString());
-  // let options = {
-  //   hour: '2-digit',
-  //   minute: '2-digit',
-  //   second: 'numeric',
-  //   hour12: false,
-  // };
-  //   const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-  // const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
-  // const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+  throw new Error('Not implemented');
+  /* const diff = new Date(endDate.getTime() - startDate.getTime());
+  console.log(diff.toLocaleTimeString());
+  let options = {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: 'numeric',
+    hour12: false,
+  };
+    const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+  const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d);
+  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d); */
 }
 
 /**
